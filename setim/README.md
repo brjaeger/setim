@@ -6,15 +6,15 @@ Pertanyaan
 5. Mengapa model pada Django disebut sebagai ORM?
 
 Jawaban
-<!-- 1. Membuat Main : Saya mulai dengan membuat aplikasi dengan nama main dengan menjalankan sintaks di cmd "python manage.py startapp main"
+1. Membuat Main : Saya mulai dengan membuat aplikasi dengan nama main dengan menjalankan sintaks di cmd "python manage.py startapp main"
 
-- Membuat Model: mendefinisikan model produk di models.py, saya ,mendeklarasikan atribut yang dibutuhkan seperti name, price, dan description.
+- Membuat Model: Pada tahap ini saya mengganti sesuai dengan ketentuan soal yaitu name, description, dan juga price yang akan dipakai pada views.py
 
-- Membuat Views: Di views.py, saya membuat fungsi product_list yang mengambil produk dari model dan mengirimkan data tersebut ke template melalui context.
+- Membuat Views: Di views.py saya menambahkan atribut-atribut yang akan digunakan dalam main.html nanti
 
-- Menghubungkan URL: Pada urls.py, saya menambahkan routing agar request URL diarahkan ke product_list yang ada di views.py. -->
+- Menghubungkan URL: Pada urls.py gunanya untuk menghubungkan atau melakukan routing dengan urls yang akan ditampilkan sesuai dengan nama pada project 
 
-<!-- - Membuat Template: Saya membuat file HTML di folder templates/main (karena kalo saya buatnya di folder templates aja nanti error saya juga kurang tau kenapa). Menggunakan syntax Django Template Language (DTL) untuk looping data produk dan menampilkan detailnya. -->
+- Membuat Template: Pada template ini berisi main.html yang berisi project tentang apa yang telah kita buat yaitu e-commerce yang telah dihubungkan melalui urls, sehingga dapat dibuka. Pada template ini juga berisi tentang data-data yang telah dimasukkan sebelumnnya yaitu name, price, dan juga description
 
 2. "Client Request -> Django URLConf (urls.py) -> View (views.py) -> Model (models.py) -> Template (HTML) -> Response
 
