@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-<h4>Nama: {{ data.name }}</h4>
-<h4>NPM: {{ data.npm }}</h4>
-<h4>Kelas: {{ data.class }}</h4>
+<h4>Nama: {{ context.name }}</h4>
+<h4>NPM: {{ context.npm }}</h4>
+<h4>Kelas: {{ context.class }}</h4>
 
 <h1><center>SETIM</h1>
     <p style = "font-size: 30px;"> <marquee scrollamount="15"> Selamat Datang </marquee> </p>
@@ -15,16 +15,16 @@
     <br><br></br>
     {% endfor %}
     
-    {% if not mood_entries %}
-<p>Belum ada data mood pada mental health tracker.</p>
-{% else %}
-<table>
-  <tr>
-    <th>Mood Name</th>
-    <th>Time</th>
-    <th>Feeling</th>
-    <th>Mood Intensity</th>
-  </tr>
+  {% if not mood_entries %}
+  <p>Belum ada data mood pada mental health tracker.</p>
+  {% else %}
+  <table>
+    <tr>
+      <th>Mood Name</th>
+      <th>Time</th>
+      <th>Feeling</th>
+      <th>Mood Intensity</th>
+    </tr>
 
   {% comment %} Berikut cara memperlihatkan data mood di bawah baris ini 
   {% endcomment %} 

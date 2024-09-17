@@ -15,7 +15,7 @@ def create_mood_entry(request):
 def show_main(request):
     mood_entries = MoodEntry.objects.all()
     
-    data = {
+    context = {
         'npm' : '2306165742',
         'name': 'Bryan Mitch',
         'class': 'PBP A',
@@ -40,7 +40,7 @@ def show_main(request):
         }
     ]
 
-    return render(request, "main.html", {'data' : data, 'products' : products, 'mood_entries' : mood_entries})
+    return render(request, "main.html", {'data' : context, 'products' : products, 'mood_entries' : mood_entries})
 
 
 
