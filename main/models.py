@@ -6,6 +6,7 @@ class MoodEntry(models.Model):
     name = models.CharField(max_length=255)
     price = models.IntegerField()
     desctription = models.TextField()
+    
     mood = models.CharField(max_length=255)
     time = models.DateField(auto_now_add=True)
     feelings = models.TextField()
