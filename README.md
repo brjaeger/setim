@@ -31,3 +31,17 @@ Dengan csrf_token, setiap form yang dikirimkan oleh pengguna memiliki token unik
 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 
 Jadi pertama-tama itu saya membuat template yang berisikan dengan base.html yang berfungsi sebagai template dasar yang digunakan untuk kerangka umum pada halaman website, selanjutnya menyesuaikan beberapa hal pada settings.py, lalu mengubah struktur pada main.html agar dapat menggunakan base.html sebagai kerangka utama. Setelah itu saya menambahkan uuid pada models.py, lalu saya membuat form yang berisi name,price, dan juga description yang ada pada forms.py. lalu saya mengubah pada berkas yang sama yaitu fungsi create_mood__entry yang berfungsi untuk menerima parameter request, lalu menyesuaikan yang berkas-berkas yang lain. Selanjutnya saya mencoba untuk mengembalikan data dalam bentuk XML, dan juga JSON dengan cara membuat return function untuk masing-masing XML, dan juga JSON, dan terakhir saya mencoba untuk mengembalikan data berdasarkan ID dalam bentuk XML, dan juga JSON.
+
+XML
+![Screenshot (134)](https://github.com/user-attachments/assets/dfc5e4e8-3d26-4bb5-904b-e4b117351c15)
+
+JSON
+![Screenshot (135)](https://github.com/user-attachments/assets/06ad5b47-66dc-423c-a22a-8489d85a5124)
+
+XML by ID
+![Screenshot (136)](https://github.com/user-attachments/assets/5e3d0e3f-ff21-4301-9bff-70e05cda8a7c)
+
+JSON by ID
+![Screenshot (137)](https://github.com/user-attachments/assets/a6aed757-6ef6-481c-89aa-71de3b87f589)
+
+
