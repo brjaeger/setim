@@ -1,3 +1,4 @@
+TUGAS 3
 1. Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
 
 Data delivery diperlukan dalam pengimplementasian platform untuk memastikan bahwa data dapat berpindah antar komponen dan juga layanan dalam suatu sistem secara akurat, efisien, dan aman. 
@@ -31,3 +32,5 @@ Dengan csrf_token, setiap form yang dikirimkan oleh pengguna memiliki token unik
 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 
 Jadi pertama-tama itu saya membuat template yang berisikan dengan base.html yang berfungsi sebagai template dasar yang digunakan untuk kerangka umum pada halaman website, selanjutnya menyesuaikan beberapa hal pada settings.py, lalu mengubah struktur pada main.html agar dapat menggunakan base.html sebagai kerangka utama. Setelah itu saya menambahkan uuid pada models.py, lalu saya membuat form yang berisi name,price, dan juga description yang ada pada forms.py. lalu saya mengubah pada berkas yang sama yaitu fungsi create_mood__entry yang berfungsi untuk menerima parameter request, lalu menyesuaikan yang berkas-berkas yang lain. Selanjutnya saya mencoba untuk mengembalikan data dalam bentuk XML, dan juga JSON dengan cara membuat return function untuk masing-masing XML, dan juga JSON, dan terakhir saya mencoba untuk mengembalikan data berdasarkan ID dalam bentuk XML, dan juga JSON.
+
+TUGAS 4
