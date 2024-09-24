@@ -48,3 +48,14 @@ JSON by ID
 
 
 >>>>>>> c4ff8fd040b362e05da2d0e2709d946f40af1780
+
+TUGAS 4
+1. Apa perbedaan antara HttpResponseRedirect() dan redirect()
+
+2. Jelaskan cara kerja penghubungan model Product dengan User!
+
+3. Apa perbedaan antara authentication dan authorization, apakah yang dilakukan saat pengguna login? Jelaskan bagaimana Django mengimplementasikan kedua konsep tersebut.
+
+4. Bagaimana Django mengingat pengguna yang telah login? Jelaskan kegunaan lain dari cookies dan apakah semua cookies aman digunakan?
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
