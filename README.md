@@ -51,11 +51,27 @@ JSON by ID
 
 TUGAS 4
 1. Apa perbedaan antara HttpResponseRedirect() dan redirect()
+HttpResponseRedirect() merupakan kelas yang mengembalikan HTTP response dengan kode status 302 (Redirect), sedangkan redirect() merupakan fungsi shortcut yang mengembalikan HttpResponseRedirect, tetapi lebih fleksibel, karena kita bisa memberikan URL sebagai string, nama view, ataupun objek model
 
 2. Jelaskan cara kerja penghubungan model Product dengan User!
+Untuk menghubungkan model Product dengan User, biasanya menggunakan ForeignKey. Dengan ForeignKey setiap product akan terhubung dengan satu pengguna saja. Jika pengguna dihapus, maka semua produk terkait akan dihapus juga menggunakan on_delete=models.CASCADE. Untuk menambahkan produk baru, kita cukup mengaitkan produk dengan pengguna yang sedang login.
 
 3. Apa perbedaan antara authentication dan authorization, apakah yang dilakukan saat pengguna login? Jelaskan bagaimana Django mengimplementasikan kedua konsep tersebut.
+- Authentication: Proses untuk memverifikasi identitas pengguna. Ini memastikan bahwa pengguna adalah siapa mereka. Saat pengguna login dengan nama pengguna dan kata sandi, itu merupakan proses autentikasi.
+
+- Authorization: Proses untuk menentukan apakah pengguna yang terautentikasi memiliki izin untuk melakukan tindakan tertentu atau mengakses sumber daya tertentu. Misalnya, seorang pengguna mungkin memiliki akses untuk melihat konten tetapi tidak untuk mengeditnya.
+
+Implementasi di Django:
+Django menggunakan sistem autentikasi built-in untuk mengelola login dan logout. Ketika pengguna login, Django akan memeriksa kredensial yang diberikan dan membuat sesi untuk pengguna yang terautentikasi.
+Untuk otorisasi, Django memberikan kontrol akses berbasis izin dan grup. Kamu bisa menentukan izin yang berbeda untuk model dan menggunakan decorator seperti @login_required untuk melindungi tampilan tertentu.
 
 4. Bagaimana Django mengingat pengguna yang telah login? Jelaskan kegunaan lain dari cookies dan apakah semua cookies aman digunakan?
+Django menggunakan session untuk mengingat pengguna yang telah login. Ketika pengguna login, Django akan membuat sesi untuk pengguna tersebut dan menyimpannya di database atau menggunakan cookie. Kegunaan lain dari cookies adalah untuk menyimpan informasi pengguna antara session, seperti preferensi atau data keranjang belanja.
 
 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+- Jadi langkah pertama yaitu kita menambahkan fungsi register di views.py untuk menampilkan dan menampilkan form registrasi pengguna, lalu membuat file template baru yaitu register.html untuk menampilkan form registrasi, dan menambahkan path baru di urls.py untuk halaman registrasi 
+- Langkah kedua yaitu membuat impor authenticate, login, dan AuthenticationForm di views.py, lalu menambahkan fungsi login_user di views.py untuk melakukan autentikasi dan login pengguna, dan membuat file template yaitu login.html untuk menampilkan form login, dan menambahkan path baru di urls.py untuk login
+- Langkah ketiga yaitu membuat impor logout pada views.py, lalu menambahkan fungsi logout_user di views.py untuk melakukan logout dan menghapus sesi pengguna, setelah itu kita membuat tombol logout di main.html, dan menambahkan path baru pada urls.py
+- Langkah keempat yaitu melakukan impor login_required di views.py, dan menambahkan decorator @login_required di atas fungsi show_main agar pengguna diharuskan untuk melakukan login terlebih dahulu sebelum dapat mengakses ke halaman main 
+- Langkah kelima yaitu melakukan impor HttpResponseRedirect, reverse, dan datetime di views.py, lalu menambahkan function untuk menyimpan cookie last_login saat login di login_user, dan menampilkan last_login di halaman main dengan menambahkannya di context, dan menambahkan response.delete_cookie('last_login') untuk menghapus cookie saat logout
+- Langkah keenam yaitu melakukan impor user dari django.contrib.auth.models di models.py, lalu menambahkan field ForeignKey pada model untuk menghubungkan entri dengan pengguna, dan melakukan migrate untuk menerapkan perubahan pada models.py 
