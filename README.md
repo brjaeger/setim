@@ -107,3 +107,10 @@ Django menggunakan session untuk mengingat pengguna yang telah login. Ketika pen
 - Langkah keempat yaitu melakukan impor login_required di views.py, dan menambahkan decorator @login_required di atas fungsi show_main agar pengguna diharuskan untuk melakukan login terlebih dahulu sebelum dapat mengakses ke halaman main 
 - Langkah kelima yaitu melakukan impor HttpResponseRedirect, reverse, dan datetime di views.py, lalu menambahkan function untuk menyimpan cookie last_login saat login di login_user, dan menampilkan last_login di halaman main dengan menambahkannya di context, dan menambahkan response.delete_cookie('last_login') untuk menghapus cookie saat logout
 - Langkah keenam yaitu melakukan impor user dari django.contrib.auth.models di models.py, lalu menambahkan field ForeignKey pada model untuk menghubungkan entri dengan pengguna, dan melakukan migrate untuk menerapkan perubahan pada models.py 
+
+TUGAS 5
+1. Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
+2. Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design!
+3. Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!
+4. Jelaskan konsep flex box dan grid layout beserta kegunaannya!
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!

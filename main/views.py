@@ -1,7 +1,7 @@
 import datetime
-from django.shortcuts import render, redirect   # Tambahkan import redirect di baris ini
-from main.forms import MoodEntryForm
-from main.models import MoodEntry  
+from django.shortcuts import render, redirect
+from main.forms import ProductForm
+from main.models import Product  
 from django.http import HttpResponse
 from django.core import serializers 
 from django.contrib.auth.forms import UserCreationForm
@@ -16,44 +16,44 @@ from django.urls import reverse
 
 @login_required(login_url='/login')
 def show_main(request):
-    mood_entries = MoodEntry.objects.filter(user=request.user)
+    products = Product.objects.filter(user=request.user)
     
     context = {
         'npm' : '2306165742',
         'name': request.user.username,
         'class': 'PBP A',
-        'mood_entries': mood_entries,
+        'products': products,                          
         'last_login': request.COOKIES['last_login'],
     }
     
     return render(request, "main.html", context)
 
-def create_mood_entry(request):
-    form = MoodEntryForm(request.POST or None)
+def create_products(request):
+    form = ProductForm(request.POST or None)  
 
     if form.is_valid() and request.method == "POST":
-        mood_entry = form.save(commit=False)
-        mood_entry.user = request.user
-        mood_entry.save()
+        product = form.save(commit=False)
+        product.user = request.user
+        product.save()
         return redirect('main:show_main')
 
     context = {'form': form}
-    return render(request, "create_mood_entry.html", context)
+    return render(request, "create_products.html", context)
 
 def show_xml(request):
-    data = MoodEntry.objects.all()
+    data = Product.objects.all()
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
 
 def show_json(request):
-    data = MoodEntry.objects.all()
+    data = Product.objects.all()
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 def show_xml_by_id(request, id):
-    data = MoodEntry.objects.filter(pk=id)
+    data = Product.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
 
 def show_json_by_id(request, id):
-    data = MoodEntry.objects.filter(pk=id)
+    data = Product.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 def register(request):
@@ -90,3 +90,20 @@ def logout_user(request):
     response.delete_cookie('last_login')
     return response
 
+def edit_product(request, id):
+    product = Product.objects.get(pk = id)
+
+    form = ProductForm(request.POST or None, instance=product)
+
+    if form.is_valid() and request.method == "POST":
+        # Simpan form dan kembali ke halaman awal
+        form.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
+
+    context = {'form': form}
+    return render(request, "edit_product.html", context)
+
+def delete_product(request, id):
+    product = Product.objects.get(pk = id)
+    product.delete()
+    return HttpResponseRedirect(reverse('main:show_main'))
