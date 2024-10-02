@@ -110,7 +110,47 @@ Django menggunakan session untuk mengingat pengguna yang telah login. Ketika pen
 
 TUGAS 5
 1. Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
+Urutan Prioritas Pengambilan CSS Selector: Ketika ada beberapa CSS selector yang diterapkan pada elemen HTML yang sama, browser menentukan prioritas berdasarkan spesifisitas dan urutan penerapan aturan CSS. Berikut urutan prioritasnya:
+- Inline styles (ditulis langsung pada elemen HTML) memiliki prioritas tertinggi.
+- ID selector (#id) memiliki prioritas lebih tinggi dibandingkan class, attribute, atau element selectors.
+- Class selector (.class), attribute selector ([type="text"]), dan pseudo-classes (:hover, :focus) berada di level berikutnya.
+- Element selector (div, p, h1) dan pseudo-elements (::before, ::after) memiliki prioritas paling rendah.
+- Jika dua selector memiliki tingkat spesifisitas yang sama, aturan yang diterapkan terakhir di file CSS akan diambil.
+
 2. Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design!
+Responsive design sangat penting karena pengguna saat ini mengakses web dari berbagai perangkat dengan ukuran layar yang berbeda, seperti smartphone, tablet, dan desktop. Responsive design memastikan tampilan dan fungsi aplikasi web tetap optimal di semua perangkat.
+Contoh aplikasi yang menerapkan responsive design:
+Sudah menerapkan: Twitter, Bootstrap, Airbnb.
+Belum menerapkan: Situs-situs lama yang hanya dirancang untuk tampilan desktop, misalnya beberapa website institusi 
+pendidikan atau pemerintahan yang belum diperbarui.
+
 3. Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!
+Perbedaan antara Margin, Border, dan Padding:
+- Margin: Ruang di luar border, digunakan untuk menciptakan jarak antara elemen dan elemen lainnya. Margin tidak memengaruhi ukuran elemen itu sendiri.
+- Border: Garis yang mengelilingi elemen di antara padding dan margin. Border bisa diberi warna, ketebalan, dan gaya (solid, dashed, dll.).
+- Padding: Ruang di dalam border, antara konten elemen dan border elemen tersebut. Padding memperbesar area elemen, tetapi tidak mengubah ukuran konten.
+
 4. Jelaskan konsep flex box dan grid layout beserta kegunaannya!
+- Flexbox: Flexbox adalah layout model satu dimensi yang digunakan untuk mengatur elemen secara fleksibel dalam satu arah, baik itu baris (row) atau kolom (column). Flexbox mempermudah pembuatan tata letak responsif tanpa menggunakan banyak float atau positioning.
+Kegunaan:
+- Menyusun elemen secara horizontal atau vertikal dengan mudah.
+- Menyebar ruang kosong antar elemen atau menyusun elemen agar memiliki ukuran yang sama.
+- Cocok untuk tata letak komponen-komponen kecil seperti navbar, tombol, atau card
+
+- Grid Layout: Grid adalah layout model dua dimensi yang memungkinkan pengaturan elemen secara vertikal dan horizontal dalam kolom dan baris. Grid mempermudah pembuatan tata letak yang lebih kompleks seperti halaman web dengan beberapa kolom dan baris.
+Kegunaan:
+- Membuat tata letak halaman secara kompleks dan terstruktur.
+- Mengontrol posisi dan ukuran elemen baik dalam arah horizontal maupun vertikal.
+- Cocok untuk tata letak halaman utama, galeri, atau dashboard
+
 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+- Jadi Langkah pertama yaitu membuat edit_product, dengan cara yaitu membuat sebuah fungsi baru bernama edit_product yang menerima parameter request, dan juga id, lalu buatlah berkas HTML baru dengan nama edit_mood.html pada main/templates. Setelah itu masukkan import di urls.pym dan juga path urlnya ke ulrpattern agar bisa terhubung.
+- Langkah kedua yaitu membuat delete_product dengan cara yang agar mirip dengan langkah sebelumnya yaitu pertama-tama membuat fungsi di views.py lalu menambahkannya ke urls.py dan sambungkan ke urlpatterns
+- Langkah ketiga yaitu memasukkan tombol edit dan juga delete ke dalam main.htm, dengan cara menambahkan referensi url main:edit_product, dan juga main:delete_product
+- Langkah keempat yaitu menambahkan navigation bar pada aplikasi, pertama-tama buatlah berkas baru dengan nama navbar.html untuk memasukkan kode agar dapat membuat navigation bar tersebut, lalu agar muncul di setiap tampilan tambahkan {% include 'navbar.html' %} di halaman-halaman lainnya.
+- Langkah selanjutnya yaitu menambahkan middleware WhiteNoise pada settings.py, agar file statis bisa diakses pada deployment user secara default, tanpa harus konfigurasi yang kompleks.
+- Langkah selanjutnya yaitu menambahkan folder static pada root directory, yang berisi folder css, dan juga image, buatlah berkas global.css agar style CSS yang ditambahkan bisa digunakan dalam template Django.
+- Langkah selanjutnya yaitu mengkonfigurasi kode semenarik mungkin untuk tampilan login, dan juga register yang ada pada main/templates.
+- Langkah selanjutnya yaitu membuat card_info.html dan juga card_product.html pada main/templates untuk mengubah tampilan yang muncul pada main.html yang berkaitan dengan product.
+- Langkah selanjutnya yaitu, menambahkan image, pada folder image yang ada pada static untuk menampilkan gambar ketika belum ada product yang ditambahkan oleh user.
+- Langkah terakhir yaitu, agar fitur-fitur pada aplikasi menjadi responsive, kita menambahkan tombol-tombol pada navbar contohnya yaitu adanya tombol hamburger jika dilihat pada mobile, lalu ada tombol pada navbar yang muncul jika dilihat pada dengan versi desktop. Untuk menambahkan tombol hamburger, kita melakukannya dengan cara menambahkan elemen <button> untuk tombol hamburger yang diisi tiga elemen <span> sebagai garis-garisnya, lalu menu navigasi menggunakan elemen <ul> yang berisi beberapa <li> sebagai link navigasi.
