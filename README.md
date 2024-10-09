@@ -154,3 +154,41 @@ Kegunaan:
 - Langkah selanjutnya yaitu membuat card_info.html dan juga card_product.html pada main/templates untuk mengubah tampilan yang muncul pada main.html yang berkaitan dengan product.
 - Langkah selanjutnya yaitu, menambahkan image, pada folder image yang ada pada static untuk menampilkan gambar ketika belum ada product yang ditambahkan oleh user.
 - Langkah terakhir yaitu, agar fitur-fitur pada aplikasi menjadi responsive, kita menambahkan tombol-tombol pada navbar contohnya yaitu adanya tombol hamburger jika dilihat pada mobile, lalu ada tombol pada navbar yang muncul jika dilihat pada dengan versi desktop. Untuk menambahkan tombol hamburger, kita melakukannya dengan cara menambahkan elemen <button> untuk tombol hamburger yang diisi tiga elemen <span> sebagai garis-garisnya, lalu menu navigasi menggunakan elemen <ul> yang berisi beberapa <li> sebagai link navigasi.
+
+TUGAS 6
+1. Jelaskan manfaat dari penggunaan JavaScript dalam pengembangan aplikasi web!
+Manfaat Penggunaan JavaScript dalam Pengembangan Aplikasi Web
+- Interaktivitas: Menambah elemen interaktif dan dinamis di halaman.
+- Manipulasi DOM: Memungkinkan perubahan konten dan gaya secara real-time tanpa reload.
+- Validasi Form: Memvalidasi data di sisi klien untuk mengurangi beban server.
+- AJAX: Mengambil data dari server tanpa memuat ulang halaman.
+- Single Page Application (SPA): Membangun aplikasi yang sepenuhnya berjalan di sisi klien.
+
+2. Jelaskan fungsi dari penggunaan await ketika kita menggunakan fetch()! Apa yang akan terjadi jika kita tidak menggunakan await?
+Fungsi Penggunaan await dengan fetch()
+- Menunggu Hasil: await menunggu promise dari fetch() selesai sebelum melanjutkan, memastikan data tersedia.
+- Tanpa await: Kode akan terus berjalan dan mungkin mencoba mengakses data yang belum diambil, menyebabkan kesalahan atau hasil yang tidak diinginkan.
+
+3. Mengapa kita perlu menggunakan decorator csrf_exempt pada view yang akan digunakan untuk AJAX POST?
+Penggunaan Decorator csrf_exempt pada View untuk AJAX POST
+- CSRF Token: Django memerlukan CSRF token untuk melindungi dari serangan CSRF pada permintaan POST.
+- csrf_exempt: Menghindari pemeriksaan token pada view tertentu untuk mempermudah pengiriman AJAX, tetapi harus digunakan dengan hati-hati untuk menjaga keamanan aplikasi.
+
+4. Pada tutorial PBP minggu ini, pembersihan data input pengguna dilakukan di belakang (backend) juga. Mengapa hal tersebut tidak dilakukan di frontend saja?
+Pembersihan data input pengguna di backend penting karena:
+- Keamanan: Pengguna bisa memanipulasi validasi frontend. Backend memastikan data yang diterima aman.
+- Integritas Data: Hanya backend yang dapat menjamin bahwa data yang masuk ke database valid.
+- Konsistensi: Backend menjaga validasi untuk semua akses, termasuk API.
+- Audit dan Logging: Pembersihan di backend memungkinkan pencatatan data untuk analisis dan audit.
+Secara keseluruhan, meskipun validasi frontend membantu pengalaman pengguna, backend tetap perlu melakukan pembersihan untuk keamanan dan integritas aplikasi.
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+- Agar dapat menerima ajax pertama-tama harus menambahkan fungsi baru pada views.py 
+- Lalu untuk mengaktifkannya, kita harus melakukan import di urls.py seperti biasanya ketika untuk menghubungkan sebuah fungsi
+- Untuk menggunakan fetch() API ke data JSON secara asynchronus, kita harus memasukkan fungsi async di dalam script
+- Lalu untuk me-refresh data secara asinkronus, kita harus menambahkan fungsi async lagi pada main.html, secara khususnya pada blok script.
+- Setelah itu untuk menampilkan modal (Tailwind) pada aplikasi, kita juga harus menambahkan kode yang berupa konfigurasi modal, mulai dari header, body, hingga footer.
+- Lalu agar modal benar-benar berfungsi kita harus menambahkan beberapa fungsi-fungsi javascript yang berupa showModal untuk memunculkan dan, hideModal untuk menghilangkan.
+- Setelah itu kita sedikit perubahan pada button untuk menampilkan tombol baru yang sudah terkonfigurasi AJAX yang sudah bisa menambahkan product secara asinkronus tanpa harus melakukan refresh lagi pada page setelah menambahkan product baru.
+- Agar bisa menggunakan modal dengan form yang telah kita buat sebelumnya, kita harus menambahkan fungsi javascript baru, yang berfungsi untuk menambahkan data mood.
+- 
